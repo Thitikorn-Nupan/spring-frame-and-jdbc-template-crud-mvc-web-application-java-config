@@ -15,7 +15,7 @@
 <div class="container">
     <ul class="nav nav-tabs" id="">
         <li class="nav-item">
-            <a class="nav-link" href="apis">Home</a> <%-- (not nescessory "/") apis request to class controll -> /apis--%>
+            <a class="nav-link" href="home">Home</a> <%-- (not nescessory "/") apis request to class controll -> /apis--%>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="views">Views users</a>

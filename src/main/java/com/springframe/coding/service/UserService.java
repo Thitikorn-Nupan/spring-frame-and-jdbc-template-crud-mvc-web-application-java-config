@@ -2,18 +2,21 @@ package com.springframe.coding.service;
 
 import com.springframe.coding.entity.User;
 import com.springframe.coding.repository.UserRepository;
-import com.springframe.coding.service.servicedirectsql.SqlDirect;
-import com.springframe.coding.service.servicemapper.MapperUser;
+import com.springframe.coding.service.sql.SqlDirect;
+import com.springframe.coding.service.mapper.MapperUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class UserService implements UserRepository<User> {
-    final private JdbcTemplate jdbcTemplate;
-    private SqlDirect sqlDirect;
+
+    private final JdbcTemplate jdbcTemplate;
+    private final SqlDirect sqlDirect;
+
+
 
     public UserService (DriverManagerDataSource getDriverManagerDataSource) {
         jdbcTemplate = new JdbcTemplate(getDriverManagerDataSource);
@@ -23,8 +26,7 @@ public class UserService implements UserRepository<User> {
     @Override
     public List<User> views() {
         MapperUser mapperUser = new MapperUser();
-        List<User> userList = jdbcTemplate.query(sqlDirect.getREADS(), mapperUser );
-        return userList;
+        return jdbcTemplate.query( sqlDirect.getREADS(), mapperUser );
     }
 
     @Override
@@ -36,7 +38,7 @@ public class UserService implements UserRepository<User> {
             return userSearch;
         }
         else {
-            return new User(); /* any attribute is null that is good to check something */
+            return new User(); // any attribute is null that is good to check something
         }
     }
 

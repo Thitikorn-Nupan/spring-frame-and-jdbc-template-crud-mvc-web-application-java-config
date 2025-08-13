@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="JdbcCrudMvc:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="JdbcCrudMvc_war.war">
-      <element id="artifact" artifact-name="JdbcCrudMvc:war exploded" />
-    </root>
-  </artifact>
-</component>
